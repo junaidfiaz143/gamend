@@ -15,13 +15,15 @@ body {
 
 .header-background {
     /* position: absolute; */
-    width: 100%;
+    width: 100vw;
     height: 400px;
+    margin: 0;
+    padding: 0;
     /* left: 0px;
     top: 0px; */
 
     background-image: url("../assets/header_background.png");
-    background-size: 100% 400px;
+    background-size: 100vw 400px;
     background-repeat: no-repeat;
 }
 
@@ -82,6 +84,7 @@ body {
 
 .menu-item:hover {
     cursor: pointer;
+    color: #30CFCF;
 }
 
 .header-text {
@@ -113,6 +116,7 @@ body {
     background: url("../assets/about_background.png");
     background-size: 100% 882px;
     background-repeat: no-repeat;
+    /* background-color: orange; */
 }
 
 .about-content {
@@ -203,6 +207,61 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.service-circle-1 {
+    background-color: #293B64;
+    padding: 25px;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #31CFCF;
+    width: 180px;
+    height: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
+
+.service-circle-1:hover {
+    background-color: #31CFCF;
+    cursor: pointer;
+}
+
+.service-circle-2 {
+    background-color: #293B64;
+    padding: 25px;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #31CFCF;
+    width: 180px;
+    height: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
+
+.service-circle-2:hover {
+    background-color: #31CFCF;
+    cursor: pointer;
+}
+
+.service-circle-3 {
+    background-color: #293B64;
+    padding: 25px;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #31CFCF;
+    width: 180px;
+    height: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
+
+.service-circle-3:hover {
+    background-color: #31CFCF;
+    cursor: pointer;
+
 }
 
 .service-tile-text {
@@ -309,8 +368,37 @@ body {
 
 input[type='radio'] {
     transform: scale(1.5);
+    appearance: none;
+    width: 0.7vw;
+    height: 0.7vw;
+    border-radius: 50%;
+    background: #e8e8e8;
+    border: 1px solid white;
+    outline: 1px solid #293B64;
 }
 
-input {
+input[type='radio']:checked {
+    background: #31CFCF;
+}
+
+input,
+textarea {
+    font-family: 'Montserrat', sans-serif;
     color: #293B64;
+}
+
+.submit-button {
+    width: 30%;
+    padding: 1px 10px;
+    background-color: #31CFCF;
+    margin: 50px;
+    border-radius: 50px;
+    text-align: center;
+    color: #FFF;
+    font-size: 1vw;
+}
+
+.submit-button:hover {
+    background-color: #293B64;
+    cursor: pointer;
 }

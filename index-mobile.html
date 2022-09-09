@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEND</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+        :root {
+            --base-color: #FFFFFF;
+            --gray-color: #F3F4F6;
+            --primary-color: #122553;
+            --primary-font-color: #293B64;
+            --accent-color: #31CFCF;
+            --black-color: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .g-center {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .g-header {
+            background-image: url("assets/header_background.png");
+            background-size: 100% inherit;
+            background-repeat: no-repeat;
+            /* background-size: cover; */
+            background-position: center;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .g-header {
+                background-image: url("assets/mobile_header_background.png");
+                background-size: cover;
+                height: 80vh;
+            }
+
+            .header-text {
+                top: 30vh;
+            }
+        }
+
+        .logo {
+            padding: 10px;
+            height: inherit;
+        }
+
+        .header-text {
+            height: 30vh;
+            font-size: 30px;
+            color: var(--accent-color);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .header-text {
+                height: 60vh;
+            }
+        }
+
+        .g-about {
+            background-image: url("assets/about_background.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            padding: 30vh 0px;
+        }
+
+        .about-text {
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 90px;
+            line-height: 171px;
+            letter-spacing: 0.05em;
+            position: relative;
+            color: var(--primary-font-color);
+        }
+
+        .about-text-inner {
+            font-size: 15px;
+            position: absolute;
+            color: var(--base-color);
+            font-weight: normal;
+            top: 62%;
+            left: 5%;
+            transform: translateY(-50%);
+        }
+
+        @media only screen and (max-width:767px) {
+            .about-text {
+                font-size: 60px;
+                text-align: center;
+            }
+
+            .about-text-inner {
+                font-size: 15px;
+                text-align: center;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .about-left {
+            justify-content: right;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .about-left {
+                justify-content: center;
+            }
+        }
+
+        .about-right {
+            justify-content: left;
+            text-align: left;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .about-right {
+                justify-content: center;
+            }
+        }
+
+        .about-game-img {
+            width: 20vw;
+            height: auto;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .about-game-img {
+                width: 50vw;
+                height: auto;
+            }
+        }
+
+        .about-label-text {
+            font-family: 'Noto Sans CJK JP', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 2px;
+            letter-spacing: 0.1em;
+
+            color: var(--base-color);
+        }
+
+        @media only screen and (max-width: 767px) {
+            .about-label-text {
+                font-size: 15px;
+            }
+        }
+
+        .g-services {
+            color: var(--primary-font-color);
+            padding: 20vh 0px;
+        }
+
+        .service-circle-1 {
+            background-color: #293B64;
+            padding: 25px;
+            border-radius: 50%;
+            border: 2px solid;
+            border-color: #31CFCF;
+            width: 180px;
+            height: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        .service-circle-1:hover {
+            background-color: #31CFCF;
+            cursor: pointer;
+        }
+
+        .service-circle-2 {
+            background-color: #293B64;
+            padding: 25px;
+            border-radius: 50%;
+            border: 2px solid;
+            border-color: #31CFCF;
+            width: 180px;
+            height: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        .service-circle-2:hover {
+            background-color: #31CFCF;
+            cursor: pointer;
+        }
+
+        .service-circle-3 {
+            background-color: #293B64;
+            padding: 25px;
+            border-radius: 50%;
+            border: 2px solid;
+            border-color: #31CFCF;
+            width: 180px;
+            height: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        .service-circle-3:hover {
+            background-color: #31CFCF;
+            cursor: pointer;
+        }
+
+        .g-footer {
+            background-color: var(--black-color);
+            padding: 5px;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            color: #FFF;
+            padding: 1em;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu>li>a {
+            margin: 0 1.5rem;
+            overflow: hidden;
+        }
+
+        .menu-button-container {
+            display: none;
+            height: 100%;
+            width: 30px;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-button,
+        .menu-button::before,
+        .menu-button::after {
+            display: block;
+            background-color: var(--primary-color);
+            position: absolute;
+            height: 2px;
+            width: 30px;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .menu-button::before {
+            content: "";
+            margin-top: -8px;
+        }
+
+        .menu-button::after {
+            content: "";
+            margin-top: 8px;
+        }
+
+        #menu-toggle:checked+.menu-button-container .menu-button::before {
+            margin-top: 0px;
+            transform: rotate(45deg);
+        }
+
+        #menu-toggle:checked+.menu-button-container .menu-button {
+            background: rgba(255, 255, 255, 0);
+        }
+
+        #menu-toggle:checked+.menu-button-container .menu-button::after {
+            margin-top: 0px;
+            transform: rotate(-45deg);
+        }
+
+        .menu>li {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .menu>li>a {
+            text-decoration: none;
+            color: var(--base-color);
+        }
+
+        .menu>li>a:hover {
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        @media (max-width: 700px) {
+            .menu-button-container {
+                display: flex;
+            }
+
+            .menu {
+                position: absolute;
+                top: 0;
+                margin-top: 80px;
+                left: 0;
+                flex-direction: column;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #menu-toggle~.menu li a {
+                height: 0;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            #menu-toggle:checked~.menu li a {
+                border: 1px solid var(--base-color);
+                height: 2.5em;
+                padding: 0.5em;
+                transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .menu>li {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                width: 100%;
+                color: var(--primary-color);
+                background-color: var(--base-color);
+            }
+
+            .menu>li>a {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                padding: 0.5em 0;
+                width: 100%;
+                color: var(--primary-color);
+                background-color: var(--base-color);
+            }
+
+            .menu>li>a:hover {
+                color: var(--accent-color);
+            }
+        }
+
+        .header-shade {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            left: 0px;
+            top: 0px;
+
+            background: linear-gradient(180deg, #112553 0%, rgba(17, 37, 83, 0) 100%);
+        }
+
+        .g-company {
+            background-image: url("assets/company_background.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            padding: 30vh 0px 50vh 0px;
+        }
+
+        .g-company-table-key {
+            margin: 16px 0px;
+            color: var(--primary-font-color);
+        }
+
+        .g-company-table-value {
+            margin: 16px 0px;
+            color: var(--primary-font-color);
+        }
+
+        .g-company-table-text {
+            color: var(--base-color);
+            padding-left: 10px;
+        }
+
+        .g-company-table-text {
+            /* color: var(--primary-font-color); */
+            padding-left: 10px;
+        }
+
+        .g-company-table-divider {
+            background-color: var(--accent-color);
+            height: 1.5px;
+            width: 100%;
+        }
+
+        @media only screen and (max-width:767px) {
+            .g-company-table-divider {
+                display: none;
+            }
+
+            .g-company-table-text {
+                text-align: left;
+                padding-left: 0px;
+            }
+
+            .g-company-table-key {
+                margin: 16px 0px 0px 0px;
+            }
+
+            .g-company-table-value {
+                margin: 0px 0px 16px 0px;
+            }
+        }
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+            /* Firefox */
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        input[type='radio'] {
+            transform: scale(1.5);
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--gray-color);
+            border: 1px solid white;
+            outline: 1px solid var(--primary-color);
+        }
+
+        input[type='radio']:checked {
+            background: var(--accent-color);
+        }
+
+        input,
+        textarea {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-font-color);
+        }
+
+        .submit-button {
+            width: 50%;
+            padding: 10px 10px;
+            background-color: #31CFCF;
+            margin: 50px;
+            border-radius: 50px;
+            text-align: center;
+            color: #FFF;
+            font-size: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #293B64;
+            cursor: pointer;
+        }
+
+        .footer-menu {
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            overflow: hidden;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .footer-menu {
+                display: inline;
+            }
+        }
+
+        .footer-menu>li {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .footer-menu>li {
+            text-decoration: none;
+            color: var(--base-color);
+            display: inline;
+            list-style: none;
+            height: 10px;
+            line-height: 10px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 50px 0px;
+        }
+
+        .footer-menu>li>a {
+            vertical-align: middle;
+            text-decoration: none;
+            color: var(--base-color);
+            padding-left: 30px;
+        }
+
+        .footer-menu>li>a:hover {
+            color: var(--accent-color);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid m-0">
+
+        <!-- HEADER -->
+        <div id="header" class="row g-header">
+            <div class="col-md-12">
+                <div class="row position-relative">
+                    <div class="header-shade"></div>
+
+                    <section class="top-nav position-relative">
+                        <div class="col-md-6" style="text-align: center;">
+                            <img src="assets/logo.png" alt="LOGO">
+                        </div>
+
+                        <div class="col-md-6" style="text-align: center;">
+                            <input id="menu-toggle" type="checkbox" />
+                            <div class="menu-button-container" style="background-color: var(--base-color); 
+                            height: 50px;
+                            width: 50px;
+                            border-radius: 50%;padding: 10px;">
+                                <label class='menu-button-container' for="menu-toggle">
+                                    <div class='menu-button'></div>
+                                </label>
+                            </div>
+                            <ul class="menu">
+                                <li><a href="#about">ABOUT</a></li>
+                                <li><a href="#service">SERVICE</a></li>
+                                <li><a href="#company">COMPANY</a></li>
+                                <li><a href="#contact">CONTACT</a></li>
+                            </ul>
+                        </div>
+
+                    </section>
+                </div>
+
+                <div class="row" style="text-align: center; height: inherit;">
+                    <p class="header-text">アプリゲームの発展を<br>
+                        アプリユーザーと共に目指す会社</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div id="about" class="row g-about">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 about-left g-center">
+
+                        <img class="about-game-img" src="assets/game_1.png">
+                    </div>
+                    <div class="col-md-6 about-right g-center">
+                        <div>
+                            <div class="about-text">
+                                ABOUT
+                                <div class=" about-text-inner">私たちについて</div>
+                            </div>
+                            <span class="about-label-text">Gamendはアプリゲームに特化した
+                                <br>
+                                アプリゲームサポート会社です。
+                            </span>
+
+                            <br><br>
+
+                            <span class="about-label-text" style="color: #31CFCF;">「既存のゲームも新規のゲーム」</span>
+                            <br><br>
+                            <span class="about-label-text">さらなる発展のサポートをさせていただきます。<br>
+                                一緒にダウンロード数TOP10を目指しましょう！</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div id="service" class="row g-services">
+            <div class="col-md-12">
+                <div class="row g-center">
+                    <div class="col-md-8" style="text-align: left;">
+                        <div class="about-text" style="color: #F3F4F6;">
+                            SERVICE
+                            <div class=" about-text-inner" style="color: #293B64;">事業紹介</div>
+                        </div>
+
+                        <span class="about-label-text" style="color: #293B64;">弊社ならではの下記サービスを用いて<br><br>
+                            お客様のゲームアプリを更に人気のあるアプリにする<br><br>
+                            手助けをさせていただきます。<br>
+                            <br>
+                        </span>
+
+                        <div class="row">
+                            <div id="card" class="blur col-sm">
+                                <div style="width: 100%; float: left; position: relative;">
+                                    <div class="service-circle-1">
+                                        <img src="assets/service_image_1.png" alt="service"
+                                            style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: auto;">
+                                    </div>
+
+                                    <div style="text-align: center; height: 50px;">
+                                        <p class="service-tile-text" style="font-weight: 700; padding-top: 10px;">
+                                            マーケティング<br>
+                                            企画支援</p>
+                                    </div>
+
+                                    <div style="width: 100%; height: 5px; display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                align-items: center; margin: 3vh 0px;">
+                                        <div style="width: 10%; height:2px; background-color: #31CFCF;"></div>
+                                    </div>
+
+                                    <div style="text-align: center;">
+                                        <p class="service-tile-text">専門家や過去のノウハウを<br>
+                                            活かして全力でサポート。<br>
+                                            大人気コンテンツを<br>
+                                            生み出せること間違いなし</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="card" class="blur col-sm">
+                                <div style="width: 100%; float: left; position: relative;">
+                                    <div class="service-circle-2">
+                                        <img src="assets/service_image_2.png" alt="service"
+                                            style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: auto;">
+                                    </div>
+
+                                    <div style="text-align: center;height: 50px;">
+                                        <p class="service-tile-text" style="font-weight: 700; padding-top: 10px;">データ分析
+                                        </p>
+                                    </div>
+
+                                    <div style="width: 100%; height: 5px; display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                align-items: center; margin: 3vh 0px;">
+                                        <div style="width: 10%; height: 2px; background-color: #31CFCF;"></div>
+                                    </div>
+
+                                    <div style="text-align: center;">
+                                        <p class="service-tile-text">実際のアプリユーザーの声や<br>
+                                            統計データを用いての<br>
+                                            問題改善へのアプローチ。</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="card" class="blur col-sm">
+                                <div style="width: 100%; float: left; position: relative;">
+                                    <div class="service-circle-3">
+                                        <img src="assets/service_image_3.png" alt="service"
+                                            style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: auto;">
+                                    </div>
+
+                                    <div style="text-align: center; height: 50px;">
+                                        <p class="service-tile-text" style="font-weight: 700; padding-top: 10px;">
+                                            Gamendアンケート</p>
+                                    </div>
+
+                                    <div style="width: 100%; height: 5px; display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                align-items: center; margin: 3vh 0px;">
+                                        <div style="width: 10%; height: 2px; background-color: #31CFCF;"></div>
+                                    </div>
+
+                                    <div style="text-align: center;">
+                                        <p class="service-tile-text">自社のアプリのアンケートで<br>
+                                            気になる事柄や<br>
+                                            希望に添えているかなどを<br>
+                                            最短ルートで進化に向かいます</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPANY -->
+        <div id="company" class="row g-company">
+            <div class="col-md-12">
+                <div class="row g-center">
+                    <div class="col-md-8">
+                        <div class="about-text" style="color: var(--primary-font-color);">
+                            COMPANY
+                            <div class="about-text-inner">会社情報</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+                                <p class="g-company-table-text g-company-table-key">会社名</p>
+                            </div>
+                            <div class="col-md-6" style="text-align: left;">
+                                <div class="g-company-table-divider"></div>
+                                <p class="g-company-table-text g-company-table-value">
+                                    株式会社Gamend
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+                                <p class="g-company-table-text g-company-table-key">代表取締役</p>
+                            </div>
+                            <div class="col-md-6" style="text-align: left;">
+                                <div class="g-company-table-divider"></div>
+                                <p class="g-company-table-text g-company-table-value">
+                                    鈴木 稜空
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+                                <p class="g-company-table-text g-company-table-key">所在地</p>
+                            </div>
+                            <div class="col-md-6" style="text-align: left;">
+                                <div class="g-company-table-divider"></div>
+                                <p class="g-company-table-text g-company-table-value g-text-break">
+                                    〒466-0814　愛知県名古屋市昭和区妙見町
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+                                <p class="g-company-table-text g-company-table-key">設立</p>
+                            </div>
+                            <div class="col-md-6" style="text-align: left;">
+                                <div class="g-company-table-divider"></div>
+                                <p class="g-company-table-text g-company-table-value">
+                                    2022年8月16日
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+                                <p class="g-company-table-text g-company-table-key">資本金</p>
+                                <div class="g-company-table-divider"></div>
+                            </div>
+                            <div class="col-md-6" style="text-align: left;">
+                                <div class="g-company-table-divider"></div>
+                                <p class="g-company-table-text g-company-table-value">
+                                    1億円
+                                </p>
+                                <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div id="contact" class="row">
+            <div class="col-md-12">
+                <div class="row g-center">
+                    <div class="" style="width: inherit;">
+                        <div class="about-text" style="color: var(--gray-color);">
+                            CONTACT
+                            <div class="about-text-inner" style="color: var(--primary-font-color); text-align: center; 
+                                left: 40%;
+                                transform: translateY(-50%);">
+                                お問い合わせ
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div class="row" style="padding: 25px 0px;">
+                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                <p class="g-company-table-key" style="margin: 0;">
+                                    名前
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="display: flex; align-items: center;">
+                                <div style="width: 90%;">
+                                    <input style="padding: 10px;box-sizing: border-box;
+                                    width: 100%;
+                                    outline: none;
+                                    background: rgba(0, 0, 0, 0.05);
+                                    border: 1px solid #293B64; " type="text" placeholder="山田　太郎">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div class="row" style="padding: 25px 0px;">
+                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                <p class="g-company-table-key" style="margin: 0;">
+                                    会社名
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="display: flex; align-items: center;">
+                                <div style="width: 90%;">
+                                    <input style="padding: 10px;box-sizing: border-box;
+                                    width: 100%;
+                                    outline: none;
+                                    background: rgba(0, 0, 0, 0.05);
+                                    border: 1px solid #293B64; " type="text" placeholder="株式会社Gamend">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div class="row" style="padding: 25px 0px;">
+                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                <p class="g-company-table-key" style="margin: 0;">
+                                    電話番号
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="display: flex; align-items: center;">
+                                <div style="width: 90%;">
+                                    <input style="padding: 10px;box-sizing: border-box;
+                                    width: 100%;
+                                    outline: none;
+                                    background: rgba(0, 0, 0, 0.05);
+                                    border: 1px solid #293B64; " type="number" placeholder="111-222-333">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div class="row" style="padding: 25px 0px;">
+                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                <p class="g-company-table-key" style="margin: 0;">
+                                    メールアドレス
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="display: flex; align-items: center;">
+                                <div style="width: 90%;">
+                                    <input style="padding: 10px;box-sizing: border-box;
+                                    width: 100%;
+                                    outline: none;
+                                    background: rgba(0, 0, 0, 0.05);
+                                    border: 1px solid #293B64; " type="text" placeholder="xxxxx@email.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div class="row" style="padding: 25px 0px;">
+                            <div class="col-md-4" style="display: flex; align-items: center;">
+                                <p class="g-company-table-key" style="margin: 0;">
+                                    資料請求
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="display: flex; align-items: center;">
+                                <div style="width: 70%;">
+                                    <div style="padding: 10px;
+                                    width: 95%;
+                                    color: rgba(0, 0, 0, 0.1);
+                                    text-align: left;">
+                                        <input type="radio" name="jp"><span
+                                            style="color: var(--primary-font-color); font-size: 15px; padding: 0px 30px 0px 10px;">する</span></input>
+                                        <input type="radio" name="jp"><span
+                                            style="color: var(--primary-font-color); font-size: 15px; padding-left: 10px;">しない</span></input>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div class="row" style="padding: 25px 0px;">
+                            <div class="col-md-4" style="text-align: left;">
+                                <p class="g-company-table-key" style="margin: 0;">
+                                    お問い合わせ内容
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="display: flex; align-items: center;">
+                                <textarea name="" id="" cols="30" rows="10"
+                                    style="resize: none; padding: 10px;box-sizing: border-box;
+                            width: 95%;
+                            height: 150px;
+                            outline: none;
+                            background: rgba(0, 0, 0, 0.05);
+                            border: 1px solid #293B64; position: relative; top: 50%; transform: translateY(-50%);"></textarea>
+                            </div>
+                        </div>
+
+                        <div style="background-color: var(--accent-color); height: 1.5px; width: 100%;"></div>
+
+                        <div style="width: 100%; display: flex;
+                        align-items: center;
+                        justify-content: center;">
+                            <div class="submit-button">
+                                <span>送　信</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="row" style="background-color: black; padding: 10px 0px;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6"
+                        style="text-align: center;display: flex; justify-content: center; align-items: center; height: initial;">
+                        <a href="#header"><img src="assets/logo.png" alt="LOGO"></a>
+                    </div>
+
+                    <div class="col-md-6"
+                        style="text-align: center; display: flex; justify-content: center; align-items: center; height: initial;">
+                        <ul class="footer-menu">
+                            <li><a href="#about">ABOUT</a></li>
+                            <li><a href="#service">SERVICE</a></li>
+                            <li><a href="#company">COMPANY</a></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -92,8 +92,7 @@
 
                 <div>
                     <div style="width: 33%; float: left; position: relative;">
-                        <div
-                            style="background-color: #293B64; padding: 25px; border-radius: 50%; border: 2px solid; border-color: #31CFCF; width: 8vw; height: 8vw; left: 50%; transform: translateX(-50%); position: relative;">
+                        <div class="service-circle-1">
                             <img src="assets/service_image_1.png" alt="service"
                                 style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 5vw; height: auto;">
                         </div>
@@ -120,8 +119,7 @@
 
                     </div>
                     <div style="width: 34%; float: left; position: relative;">
-                        <div
-                            style="background-color: #293B64; padding: 25px; border-radius: 50%; border: 2px solid; border-color: #31CFCF; width: 8vw; height: 8vw; left: 50%; transform: translateX(-50%); position: relative;">
+                        <div class="service-circle-2">
                             <img src="assets/service_image_2.png" alt="service"
                                 style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 5vw; height: auto;">
                         </div>
@@ -146,8 +144,7 @@
 
                     </div>
                     <div style="width: 33%; float: left; position: relative;">
-                        <div
-                            style="background-color: #293B64; padding: 25px; border-radius: 50%; border: 2px solid; border-color: #31CFCF; width: 8vw; height: 8vw; left: 50%; transform: translateX(-50%); position: relative;">
+                        <div class="service-circle-3">
                             <img src="assets/service_image_3.png" alt="service"
                                 style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 5vw; height: auto;">
                         </div>
@@ -337,9 +334,9 @@
                         color: rgba(0, 0, 0, 0.1);
                         top: 50%; position: relative; transform: translateY(-50%);">
                             <input type="radio" name="jp"><span
-                                style="color: #293B64; font-size: 1vw;">する</span></input>
+                                style="color: #293B64; font-size: 1vw; padding: 0px 30px 0px 10px;">する</span></input>
                             <input type="radio" name="jp"><span
-                                style="color: #293B64; font-size: 1vw;">しない</span></input>
+                                style="color: #293B64; font-size: 1vw; padding-left: 10px;">しない</span></input>
                         </div>
                     </div>
                 </div>
@@ -349,13 +346,13 @@
                         <p style="color: #293B64; padding: 11px; height: 178px; font-size: 1vw;">お問い合わせ内容</p>
                     </div>
                     <div style="float: left; width: 70%; height: 200px; border-bottom: 1px #31CFCF solid;">
-                        <input style="padding: 10px;box-sizing: border-box;
+                        <textarea name="" id="" cols="30" rows="10"
+                            style="resize: none; padding: 10px;box-sizing: border-box;
                         width: 95%;
                         height: 150px;
                         outline: none;
                         background: rgba(0, 0, 0, 0.05);
-                        border: 1px solid #293B64; position: relative; top: 50%; transform: translateY(-50%);"
-                            type="text">
+                        border: 1px solid #293B64; position: relative; top: 50%; transform: translateY(-50%);"></textarea>
 
                     </div>
                 </div>
@@ -365,9 +362,8 @@
                             flex-wrap: wrap;
                             justify-content: center;
                             align-items: center;">
-                    <div
-                        style="width: 30%; height:58px; background-color: #31CFCF; margin: 50px; border-radius: 50px; text-align: center;">
-                        <p style="color:#FFF; font-size: 1vw;">送　信</p>
+                    <div class="submit-button">
+                        <p>送　信</p>
                     </div>
                 </div>
             </div>
